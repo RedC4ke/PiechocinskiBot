@@ -1,7 +1,12 @@
 import json
 import POSifiedText
 import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(
+    connection_string="c9e3e1b7-19f7-4f8e-a054-0325aee617c7"
+))
 
 if __name__ == '__main__':
     model_file = open("model.json", "r", encoding="utf-8")
@@ -16,4 +21,4 @@ if __name__ == '__main__':
         sentences.append(sentence)
     output_text = output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "")\
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
-    logging.error(output_text)
+    logger.error(output_text)
