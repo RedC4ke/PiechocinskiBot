@@ -1,14 +1,15 @@
+import json
 import POSifiedText
 
-if __name__ == '__main__':
-    with open("sources.txt", "r", encoding="utf-8") as f:
-        text = f.readlines()
 
-    text_model = POSifiedText.POSifiedNewlineText(text, state_size=2, well_formed=True)
+if __name__ == '__main__':
+    model_file = open("model.json", "r", encoding="utf-8")
+    model = POSifiedText.POSifiedNewlineText.from_json(json.load(model_file))
+
     sentences = []
     output_text = ""
     for i in range(1):
-        sentence = text_model.make_sentence(tries=15, max_overlap_total=70)
+        sentence = model.make_sentence()
         if sentence not in sentences:
             output_text += "\n" + sentence
         sentences.append(sentence)
