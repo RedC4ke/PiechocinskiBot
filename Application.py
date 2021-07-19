@@ -5,7 +5,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(
-    connection_string="c9e3e1b7-19f7-4f8e-a054-0325aee617c7"
+    connection_string='InstrumentationKey=c9e3e1b7-19f7-4f8e-a054-0325aee617c7'
 ))
 
 if __name__ == '__main__':
