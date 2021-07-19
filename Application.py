@@ -4,7 +4,7 @@ import resource
 
 
 if __name__ == '__main__':
-    resource.setrlimit(resource.RLIMIT_AS, (40000, 40960))
+    resource.setrlimit(resource.RLIMIT_DATA, (4000000, 4096000))
 
     model_file = open("model.json", "r", encoding="utf-8")
     model = POSifiedText.POSifiedNewlineText.from_json(json.load(model_file))
