@@ -1,6 +1,5 @@
 import markovify
 import spacy
-import json
 
 nlp = spacy.load("pl_core_news_md")
 

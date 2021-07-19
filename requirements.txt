@@ -34,3 +34,5 @@ typing-extensions==3.10.0.0
 Unidecode==1.2.0
 urllib3==1.26.6
 wasabi==0.8.2
+
+opencensus~=0.7.13
