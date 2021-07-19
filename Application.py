@@ -19,4 +19,3 @@ if __name__ == '__main__':
     output_text = output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "")\
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
     print(output_text + "\n")
-    input('press enter')
