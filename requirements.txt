@@ -14,8 +14,7 @@ numpy==1.21.1
 oauthlib==3.1.1
 packaging==21.0
 pathy==0.6.0
-pl-core-news-lg @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_lg-3.1.0/pl_core_news_lg-3.1.0-py3-none-any.whl
-pl-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.1.0/pl_core_news_sm-3.1.0-py3-none-any.whl
+pl-core-news-md @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_md-3.1.0/pl_core_news_md-3.1.0-py3-none-any.whl
 preshed==3.0.5
 pydantic==1.8.2
 pyparsing==2.4.7
