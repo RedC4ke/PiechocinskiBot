@@ -1,7 +1,7 @@
 import POSifiedText
 
 if __name__ == '__main__':
-    with open("lalka.txt", "r", encoding="utf-8") as f:
+    with open("piecho1.txt", "r", encoding="utf-8") as f:
         text = f.readlines()
 
     text_model = POSifiedText.POSifiedNewlineText(text, state_size=2, well_formed=True)
