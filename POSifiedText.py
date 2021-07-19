@@ -1,10 +1,10 @@
 import markovify
 import spacy
 
-nlp = spacy.load("pl_core_news_lg")
+nlp = spacy.load("pl_core_news_md")
 
 
-class POSifiedNewlineText(markovify.NewlineText):
+class POSifiedNewlineText(markovify.Text):
     def word_split(self, sentence):
         return ["::".join((word.orth_, word.pos_)) for word in nlp(sentence)]
 
