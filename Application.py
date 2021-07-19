@@ -1,5 +1,6 @@
 import json
 import POSifiedText
+import logging
 
 
 if __name__ == '__main__':
@@ -15,4 +16,4 @@ if __name__ == '__main__':
         sentences.append(sentence)
     output_text = output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "")\
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
-    print(output_text + "\n")
+    logging.error(output_text)
