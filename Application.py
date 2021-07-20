@@ -1,5 +1,6 @@
 import json
 import POSifiedText
+import requests
 import logging
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 
@@ -9,6 +10,8 @@ logger.addHandler(AzureLogHandler(
 ))
 
 if __name__ == '__main__':
+    logger.info("Bot started!")
+
     model_file = open("model.json", "r", encoding="utf-8")
     model = POSifiedText.POSifiedNewlineText.from_json(json.load(model_file))
 
@@ -21,4 +24,5 @@ if __name__ == '__main__':
         sentences.append(sentence)
     output_text = output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "")\
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
-    logger.error(output_text)
+
+    logger.warning(output_text)
