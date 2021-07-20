@@ -2,12 +2,19 @@ import json
 import POSifiedText
 import requests
 import logging
+import os
 from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+instrumentation_key = os.environ['INSIGHTS_INSTRUMENTATION_KEY']
+fb_token = os.environ['FACEBOOK_ACCESS_TOKEN']
+fb_page_id = 105803968458128
+fb_post_url = 'https://graph.facebook.com/{}/feed'.format(fb_page_id)
 
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(
-    connection_string='InstrumentationKey=c9e3e1b7-19f7-4f8e-a054-0325aee617c7'
+    connection_string=f'InstrumentationKey=${instrumentation_key}'
 ))
+
 
 if __name__ == '__main__':
     logger.info("Bot started!")
@@ -26,3 +33,10 @@ if __name__ == '__main__':
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
 
     logger.warning(output_text)
+
+    fb_payload = {
+        'message': output_text,
+        'access_token': fb_token
+    }
+    fb_request = requests.post(fb_post_url, data=fb_payload)
+    logger.warning(fb_request.text)
