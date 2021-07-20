@@ -34,5 +34,5 @@ jobs:
       with:
         app-name: piechocinski-bot
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE715CCADCD144C5826A3DDBDBCE1E0A }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D8E175FC048F4F8DBDD86B63181CB87D }}
 
