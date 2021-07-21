@@ -27,7 +27,7 @@ def info(text):
     logger.info(text)
 
 
-def sentence(markovify_model):
+def sentence():
     output_text = None
     while output_text is None:
         output_text = model.make_sentence(tries=10, max_overlap_total=70)
@@ -46,10 +46,10 @@ def facebook(fb_sentence):
     return
 
 
-def job(markovify_model):
+def job():
     info("Job started!")
 
-    text = sentence(markovify_model)
+    text = sentence()
     info(f"Sentence: {text}")
 
     facebook(text)
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     model_file = open(f"model.json", "r", encoding="utf-8")
     model = POSifiedText.POSifiedNewlineText.from_json(json.load(model_file))
 
-    schedule.every(75).to(180).minutes.do(job(model))
+    schedule.every(75).to(180).minutes.do(job, model)
     info("Job scheduled!")
 
     while True:
