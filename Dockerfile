@@ -13,4 +13,4 @@ WORKDIR /app/src
 RUN pip install -r requirements.txt
 
 # Run the script
-CMD python app.py
+CMD python -u app.py
