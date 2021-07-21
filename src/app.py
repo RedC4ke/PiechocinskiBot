@@ -3,7 +3,10 @@ import POSifiedText
 import requests
 import logging
 import os
+from dotenv import load_dotenv
 from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+load_dotenv()
 
 instrumentation_key = os.environ['INSIGHTS_INSTRUMENTATION_KEY']
 fb_token = os.environ['FACEBOOK_ACCESS_TOKEN']
@@ -12,7 +15,7 @@ fb_post_url = 'https://graph.facebook.com/{}/feed'.format(fb_page_id)
 
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(
-    connection_string=f'InstrumentationKey=${instrumentation_key}'
+    connection_string=f'InstrumentationKey={instrumentation_key}'
 ))
 
 
@@ -32,11 +35,13 @@ if __name__ == '__main__':
     output_text = output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "")\
         .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ")
 
+    print(output_text)
     logger.warning(output_text)
-
+#
     fb_payload = {
-        'message': output_text,
+        'message': output_text.strip(),
         'access_token': fb_token
     }
     fb_request = requests.post(fb_post_url, data=fb_payload)
+    print(fb_request.text)
     logger.warning(fb_request.text)

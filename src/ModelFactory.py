@@ -1,10 +1,13 @@
 import POSifiedText
 import json
+import re
 
 
 if __name__ == '__main__':
     with open("sources.txt", "r", encoding="utf-8") as f:
-        text = f.readlines()
+        pattern = re.compile('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+        text = pattern.sub('', f.read())
+        print(text)
 
     text_model = POSifiedText.POSifiedNewlineText(text, state_size=2, well_formed=True)
     output_file = open("model.json", "w", encoding="utf-8")
