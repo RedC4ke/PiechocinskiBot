@@ -1,0 +1,4 @@
+.git*
+*/*.env
+*/_pycache_
+.idea

@@ -113,7 +113,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#Docker
-Dockerfile
-.dockerignore
-Dockerfile
