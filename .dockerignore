@@ -2,3 +2,5 @@
 */*.env
 */_pycache_
 .idea
+*.ps1
+keys/
