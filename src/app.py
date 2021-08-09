@@ -96,9 +96,11 @@ if __name__ == '__main__':
     info("Bot started!")
 
     model_file = open(f"model.json", "r", encoding="utf-8")
-    model = POSifiedText.POSifiedNewlineText.from_json(json.load(model_file))
+    model = POSifiedText.POSifiedText.from_json(json.load(model_file))
 
     fb_page_token = fb_setup()
+
+    job()
 
     schedule.every(45).to(280).minutes.do(job)
     info("Job scheduled!")

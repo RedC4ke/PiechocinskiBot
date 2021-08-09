@@ -10,6 +10,6 @@ if __name__ == '__main__':
             .replace(' .', '.').replace(' ,', ',')
         print(text)
 
-    text_model = POSifiedText.POSifiedNewlineText(text, state_size=3, well_formed=True)
+    text_model = POSifiedText.POSifiedText(text, state_size=3, well_formed=True)
     output_file = open("model.json", "w", encoding="utf-8")
     json.dump(text_model.to_json(), output_file, ensure_ascii=False, indent=4)
