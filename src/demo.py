@@ -7,6 +7,7 @@ if __name__ == '__main__':
     model = POSifiedText.POSifiedText.from_json(json.load(model_file))
 
     for i in range(20):
-        output_text = model.make_sentence(tries=25, max_overlap_total=70)
-        print(output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "") \
-            .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ").strip())
+        output_text = model.make_sentence(tries=35, max_overlap_total=60)
+        if output_text is not None:
+            print(output_text.replace(" .", ".").replace(" ,", ",").replace(" ;", ";").replace(" …", "") \
+                .replace(" ?", "?").replace(" !", "!").replace(" ...", "...").replace("  ", ": ").strip())
