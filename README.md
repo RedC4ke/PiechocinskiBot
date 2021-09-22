@@ -11,4 +11,4 @@ Usage:
 4. Run the app.
 
 If you want to just preview the sentences, you can use the demo script.
-Docker deploy script should work for everyone, but you may want to change deployment script, as it is designed to use remote Azure container from my local machine. 
+Docker build script should work for everyone, but you may want to change deployment script, as it is designed to use remote Azure container from my local machine. 
